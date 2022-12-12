@@ -43,17 +43,21 @@ const Profile = () => {
 
 
 
+    // axios
+    //   .get(oldVideoURL["task-response-status-url"], setHeader)
+    //   .then((oldRes) => {
+    //     axios
+    //       .get(newVideoURL["task-response-status-url"], setHeader)
+    //       .then((newRes) => {
+    //         setdata({ ...oldRes.data, ...newRes.data })
+    //         console.log("data=========>>>>>>>", data);
+    //       })
+
+    //   });
+
     axios
       .get(oldVideoURL["task-response-status-url"], setHeader)
-      .then((oldRes) => {
-        axios
-          .get(newVideoURL["task-response-status-url"], setHeader)
-          .then((newRes) => {
-            setdata({ ...oldRes.data, ...newRes.data })
-            console.log("data=========>>>>>>>", data);
-          })
-
-      });
+      .then(res => setdata(res.data))
 
 
 
@@ -76,7 +80,8 @@ const Profile = () => {
 
 
   useEffect(() => {
-    if (Object.keys(data).length > 1) {
+    // if (Object.keys(data).length > 1) {
+    if (data) {
       let hairType = data["hair-type"];
       // let hairType = "karthik";
       const token = localStorage.getItem('access')
