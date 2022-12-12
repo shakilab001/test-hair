@@ -137,13 +137,13 @@ const Profile = () => {
                     </div>
                     <div className="thank-you-text">
                       <p>
-                        Thank you cosmetologist{" "}
+                        Thank you cosmetologisttttt{" "}
                         <a
                           href="https://hersbychantell.com/pages/her-story"
                           style={{ color: "#00C9C9" }}>
                           Chantell
                         </a>
-                        for your expert lessons.
+                        for your expert lessonsssss.
                       </p>
                     </div>
                   </div>
