@@ -43,22 +43,21 @@ const Profile = () => {
 
 
 
+    axios
+      .get(oldVideoURL["task-response-status-url"], setHeader)
+      .then((oldRes) => {
+        axios
+          .get(newVideoURL["task-response-status-url"], setHeader)
+          .then((newRes) => {
+            setdata({ ...oldRes.data, ...newRes.data })
+            console.log("data=========>>>>>>>", data);
+          })
+
+      });
+
     // axios
     //   .get(oldVideoURL["task-response-status-url"], setHeader)
-    //   .then((oldRes) => {
-    //     axios
-    //       .get(newVideoURL["task-response-status-url"], setHeader)
-    //       .then((newRes) => {
-    //         setdata({ ...oldRes.data, ...newRes.data })
-    //         console.log("data=========>>>>>>>", data);
-    //       })
-
-    //   });
-
-    axios
-      // .get(oldVideoURL["task-response-status-url"], setHeader)
-      .get(newVideoURL["task-response-status-url"], setHeader)
-      .then(res => setdata(res.data))
+    //   .then(res => setdata(res.data))
 
 
 
@@ -81,8 +80,8 @@ const Profile = () => {
 
 
   useEffect(() => {
-    // if (Object.keys(data).length > 1) {
-    if (data) {
+    if (Object.keys(data).length > 1) {
+      // if (data) {
       let hairType = data["hair-type"];
       // let hairType = "karthik";
       const token = localStorage.getItem('access')
@@ -157,7 +156,10 @@ const Profile = () => {
                   {data && data["masked-image"] ? (
                     <div className="main-profile-group">
 
-                      <img src={maskedImage ? data["masked-image"] : originalImageLink} alt="img" />
+                      {
+                        originalImageLink && maskedImage ?
+                          <img src={maskedImage ? data["masked-image"] : originalImageLink} alt="img" /> : <h2>loading...</h2>
+                      }
                       {/* <img src={maskedImage ? data["masked-image"] : data["input-image"]} alt="img" /> */}
                       <div
                         style={{
