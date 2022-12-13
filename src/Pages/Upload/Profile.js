@@ -56,7 +56,8 @@ const Profile = () => {
     //   });
 
     axios
-      .get(oldVideoURL["task-response-status-url"], setHeader)
+      // .get(oldVideoURL["task-response-status-url"], setHeader)
+      .get(newVideoURL["task-response-status-url"], setHeader)
       .then(res => setdata(res.data))
 
 
