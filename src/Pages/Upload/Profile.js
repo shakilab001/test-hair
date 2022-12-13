@@ -80,8 +80,8 @@ const Profile = () => {
 
 
   useEffect(() => {
-    if (Object.keys(data).length > 1) {
-      // if (data) {
+    // if (Object.keys(data).length > 1) {
+    if (data) {
       let hairType = data["hair-type"];
       // let hairType = "karthik";
       const token = localStorage.getItem('access')
